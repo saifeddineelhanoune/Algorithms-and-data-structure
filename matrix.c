@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 // Function to allocate memory for a matrix of integers
 int** allocateMatrix(int rows, int cols) {
@@ -55,7 +56,10 @@ int main()
 
     // // Free the memory allocated for the double pointer
     // free(triplePointer);
-
+    int age;
+    do
+        scanf("%d", &age);
+    while (age <= 18);
     return 0;
 }
 
