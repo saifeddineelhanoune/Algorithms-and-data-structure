@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
+#define MAX_COLS 20
 // Function to allocate memory for a matrix of integers
-int** allocateMatrix(int rows, int cols) {
+int** allocateMatrix(int rows, int cols) 
+{
     int** matrix = (int**) malloc(rows * sizeof(int*));
     for (int i = 0; i < rows; i++)
         matrix[i] = (int*) malloc(cols * sizeof(int));
@@ -11,14 +12,16 @@ int** allocateMatrix(int rows, int cols) {
 }
 
 // Function to initialize a matrix with values
-void initializeMatrix(int** matrix, int rows, int cols) {
+void initializeMatrix(int** matrix, int rows, int cols) 
+{
     for (int i = 0; i < rows; i++)
         for (int j = 0; j < cols; j++)
             matrix[i][j] = i * cols + j;
 }
 
 // Function to print the contents of a matrix
-void printMatrix(int** matrix, int rows, int cols) {
+void printMatrix(int** matrix, int rows, int cols) 
+{
     for (int i = 0; i < rows; i++)
         for (int j = 0; j < cols; j++)
             write(1, &matrix[i][j], 1);
@@ -32,34 +35,13 @@ void freeMatrix(int** matrix, int rows) {
     free(matrix);
 }
 
-int main() 
+int main(int ac, char *av[])
 {
-
-    // // Declare a triple pointer to hold a double pointer
-    // int*** triplePointer;
-
-    // // Allocate memory for the double pointer
-    // triplePointer = (int***) malloc(sizeof(int**));
-
-    // // Allocate memory for the matrix using the double pointer
-    // *triplePointer = allocateMatrix(rows, cols);
-
-    // // Initialize the matrix with values
-    // initializeMatrix(*triplePointer, rows, cols);
-
-    // // Print the matrix
-    // printf("Matrix:\n");
-    // printMatrix(*triplePointer, rows, cols);
-
-    // // Free the memory allocated for the matrix
-    // freeMatrix(*triplePointer, rows);
-
-    // // Free the memory allocated for the double pointer
-    // free(triplePointer);
-    int age;
-    do
-        scanf("%d", &age);
-    while (age <= 18);
+    int **matrice;
+    matrice = allocateMatrix(10, MAX_COLS);
+    initializeMatrix(matrice, 10, MAX_COLS);
+    printMatrix(matrice, 10, MAX_COLS);
+    freeMatrix(matrice, 10);
     return 0;
 }
 
