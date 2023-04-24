@@ -14,9 +14,10 @@ int** allocateMatrix(int rows, int cols)
 // Function to initialize a matrix with values
 void initializeMatrix(int** matrix, int rows, int cols) 
 {
+    char c =  'a';
     for (int i = 0; i < rows; i++)
         for (int j = 0; j < cols; j++)
-            matrix[i][j] = i * cols + j;
+            matrix[i][j] = c++;
 }
 
 // Function to print the contents of a matrix
