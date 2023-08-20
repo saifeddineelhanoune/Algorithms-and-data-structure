@@ -41,24 +41,30 @@ int main()
     // Declare a triple pointer to hold a double pointer
     int*** triplePointer;
 
-    // Allocate memory for the double pointer
+    /* Allocate memory for the double pointer
     triplePointer = (int***) malloc(sizeof(int**));
+    */
 
-    // Allocate memory for the matrix using the double pointer
-    *triplePointer = allocateMatrix(rows, cols);
+    /* Allocate memory for the matrix using the double pointer
+    *triplePointer = allocateMatrix(/*rows, cols);
+    */
 
-    // Initialize the matrix with values
+    /* Initialize the matrix with values
     initializeMatrix(*triplePointer, rows, cols);
+    */
 
-    // Print the matrix
+    /* Print the matrix
     printf("Matrix:\n");
     printMatrix(*triplePointer, rows, cols);
+    */
 
-    // Free the memory allocated for the matrix
+    /* Free the memory allocated for the matrix
     freeMatrix(*triplePointer, rows);
+    */
 
-    // Free the memory allocated for the double pointer
+    /* Free the memory allocated for the double pointer
     free(triplePointer);
+    */
 
 
 
