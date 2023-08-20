@@ -6,14 +6,15 @@
 /*   By: sel-hano <sel-hano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 21:59:43 by sel-hano          #+#    #+#             */
-/*   Updated: 2023/08/20 07:34:26 by sel-hano         ###   ########.fr       */
+/*   Updated: 2023/08/20 23:28:08 by sel-hano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Students.h"
 
 //the same as lst_new & lst_addfront
-static t_StudentsInfo	*CreateStudent(char* ID, char* name, char* email, char* phone, int number_of_course) {
+static t_StudentsInfo	*CreateStudent(char* ID, char* name, char* email, char* phone, int number_of_course) 
+{
     t_StudentsInfo	*newNode = (t_StudentsInfo*)malloc(sizeof(t_StudentsInfo));
     if (newNode) 
 	{
@@ -61,13 +62,14 @@ bool	isDuplicate(char ID[10], int size, char *newID)
 //         strcpy(s->ID, newID); // Assign the unique ID to the ID field of the t_StudentsInfo structure
 // }
 
-static void ReadDataFromFile(t_StudentsInfo **students, const char* dir) 
+static void ReadData(t_StudentsInfo **students, const char* dir) 
 {
     char* copied = strdup(dir); // Copy the directory path
     if (!copied)
         return;
     int fd = open(copied, O_RDONLY);
     free(copied);
+    copied = NULL;
     if (fd < 0)
         return;
     char* line = get_next_line(fd);
@@ -107,8 +109,6 @@ static void ReadDataFromFile(t_StudentsInfo **students, const char* dir)
 
 static void print_students(t_StudentsInfo *students)
 {
-	if (!students || !(students)->next)
-		return ;
 	while (students)
 	{
 		printf("student ID => %s\t", (students)->ID);
@@ -122,11 +122,11 @@ static void print_students(t_StudentsInfo *students)
 
 int main()
 {
-	t_StudentsInfo *s1 = NULL;
-	// int count = 0;
-	// printf("enter the count of students to set \n");
-	// scanf("%d", &count);
-	ReadDataFromFile(&s1, "./read/common/class1/students_data.csv");
-	print_students(s1);
+	// t_StudentsInfo *s1 = NULL;
+	// // int count = 0;
+	// // printf("enter the count of students to set \n");
+	// // scanf("%d", &count);
+	// ReadData(&s1, "./read/common/class1/students_data.csv");
+	// print_students(s1);
 	return 0;
 }

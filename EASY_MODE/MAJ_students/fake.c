@@ -1,7 +1,7 @@
-// #include <libc.h>
+#include <libc.h>
 
-// extern void *malloc(size_t size)
-// {
-// 	(void)size;
-// 	return NULL;
-// }
+extern void *malloc(size_t size)
+{
+	(void)size;
+	return NULL;
+}
