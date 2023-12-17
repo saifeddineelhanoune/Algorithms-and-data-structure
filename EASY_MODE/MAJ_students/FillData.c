@@ -6,7 +6,7 @@
 /*   By: sel-hano <sel-hano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 21:59:43 by sel-hano          #+#    #+#             */
-/*   Updated: 2023/08/20 23:28:08 by sel-hano         ###   ########.fr       */
+/*   Updated: 2023/08/22 00:44:31 by sel-hano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static void AddStudentsToList(t_StudentsInfo** head, t_StudentsInfo* newNode)
 {
     if (newNode == NULL)
         return;
-
     newNode->next = *head;
     *head = newNode;
 }
